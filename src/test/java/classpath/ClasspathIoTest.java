@@ -59,7 +59,7 @@ public class ClasspathIoTest {
                 .lines()
                 .collect(Collectors.toList());
 
-        assertEquals(Arrays.asList("jarLine1","jarLine2"), lines);
+        assertEquals(Arrays.asList("jarLine1", "jarLine2"), lines);
     }
 
     @Test
