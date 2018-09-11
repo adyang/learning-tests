@@ -3,6 +3,7 @@ package classpath;
 import org.junit.Test;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -88,5 +89,13 @@ public class ClasspathIoTest {
         assertTrue(uri.toString().endsWith("jar-file.txt"));
 
         Paths.get(uri);
+    }
+
+    @Test
+    public void readAsByteArrayOutputStreamViaTransferToInJava9() throws IOException {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        getClass().getResourceAsStream("/classpath-file.txt").transferTo(os);
+
+        assertEquals("classpathLine1\nclasspathLine2", os.toString(StandardCharsets.UTF_8));
     }
 }
