@@ -25,7 +25,7 @@ import org.junit.Test;
 import com.google.common.jimfs.Configuration;
 import com.google.common.jimfs.Jimfs;
 
-public class JavaFilesApiTest {
+public class FilesApiTest {
 	private FileSystem fs;
 	private Path fileOne;
 	private Path dirOne;
@@ -50,20 +50,20 @@ public class JavaFilesApiTest {
 	}
 
 	@Test
-	public void fileExistence() throws IOException {
+	public void fileExistence() {
 		assertTrue(Files.exists(fileOne));
 		assertTrue(Files.notExists(nonExistentFile));
 	}
 
 	@Test
-	public void fileAccessibility() throws Exception {
+	public void fileAccessibility() {
 		assertTrue(Files.isReadable(fileOne));
 		assertTrue(Files.isWritable(fileOne));
 		assertTrue(Files.isExecutable(fileOne));
 	}
 
 	@Test
-	public void checkFileOrDirectory() throws Exception {
+	public void checkFileOrDirectory() {
 		assertTrue(Files.isRegularFile(fileOne));
 		assertFalse(Files.isDirectory(fileOne));
 		assertTrue(Files.isDirectory(dirOne));

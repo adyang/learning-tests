@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 public class ClasspathIoTest {
     @Test
     public void readAsLineStreamViaBufferedReader() {
-        InputStream is = getClass().getResourceAsStream("/fileio/classpath-file.txt");
+        InputStream is = getClass().getResourceAsStream("/classpath-file.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
         List<String> lines = br.lines().collect(Collectors.toList());
 
@@ -30,7 +30,7 @@ public class ClasspathIoTest {
 
     @Test
     public void readAsLineStreamViaBufferedReader_canConvertToStringWithSystemSeparator() {
-        InputStream is = getClass().getResourceAsStream("/fileio/classpath-file.txt");
+        InputStream is = getClass().getResourceAsStream("/classpath-file.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
         String str = br.lines().collect(Collectors.joining(System.lineSeparator()));
 
@@ -64,7 +64,7 @@ public class ClasspathIoTest {
 
     @Test
     public void readAsBytesViaFilesApi() throws URISyntaxException, IOException {
-        byte[] bytes = Files.readAllBytes(Paths.get(getClass().getResource("/fileio/classpath-file.txt").toURI()));
+        byte[] bytes = Files.readAllBytes(Paths.get(getClass().getResource("/classpath-file.txt").toURI()));
         String str = new String(bytes, StandardCharsets.UTF_8);
 
         assertEquals("classpathLine1\nclasspathLine2", str);

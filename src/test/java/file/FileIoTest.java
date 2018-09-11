@@ -23,7 +23,7 @@ import org.junit.Test;
 import com.google.common.jimfs.Configuration;
 import com.google.common.jimfs.Jimfs;
 
-public class JavaFileIoTest {
+public class FileIoTest {
 	private static final String FILE_ONE_CONTENTS = "fileOneLine1\nfileOneLine2\n";
 	private FileSystem fs;
 	private Path fileOne;
@@ -99,7 +99,7 @@ public class JavaFileIoTest {
 
 	@Test
 	public void readFileFromClasspath() throws Exception {
-		URL resource = getClass().getClassLoader().getResource("fileio/classpath-file.txt");
+		URL resource = getClass().getClassLoader().getResource("classpath-file.txt");
 		Path classpathFile = Paths.get(resource.toURI());
 		List<String> lines = Files.readAllLines(classpathFile);
 		assertEquals(Arrays.asList("classpathLine1", "classpathLine2"), lines);
