@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-	testCompile 'com.google.jimfs:jimfs:1.1'
-    testCompile 'junit:junit:4.12'
-    testCompile name: 'jar-resource-test'
+	testImplementation 'com.google.jimfs:jimfs:1.1'
+    testImplementation 'junit:junit:4.12'
+    testImplementation name: 'jar-resource-test'
 }
