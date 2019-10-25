@@ -1,4 +1,4 @@
-package time.duration;
+package time;
 
 import org.junit.Test;
 
